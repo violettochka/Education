@@ -17,24 +17,4 @@ namespace Homework2
             AvailableTimeRanges = availableTimeRanges;
         }
     }
-    public class TimeRange
-    {
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
-
-        public TimeRange(TimeSpan startTime, TimeSpan endTime)
-        {
-            StartTime = startTime;
-            EndTime = endTime;
-        }
-    }
-    public enum Days 
-    { 
-        Monday,
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday,
-
-    }
 }

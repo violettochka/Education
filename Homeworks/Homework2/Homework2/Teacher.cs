@@ -17,8 +17,6 @@ namespace Homework2
             this.TeacherName = TeacherName;
             this.AvailibleDayTime = AvalibleDayTime;
             this.Subject = Subject;
-
-
         }
 
         public override string ToString()
@@ -34,7 +32,5 @@ namespace Homework2
                 Console.WriteLine(elem.ToString());
             }
         }
-
-
     }
 }

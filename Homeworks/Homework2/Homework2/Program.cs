@@ -27,7 +27,6 @@ namespace Homework2
             InitializerOfMyClass.Schedule(teacher, 5, geometry, TimeSpan.FromHours(10), TimeSpan.FromHours(12), Days.Monday);
             InitializerOfMyClass.Schedule(teacher2, 3, oop, TimeSpan.FromHours(13), TimeSpan.FromHours(15), Days.Monday);
 
-
             // просмотр всего рассписания
             Schedule.ShowAllSchedule();
 
@@ -39,9 +38,6 @@ namespace Homework2
 
             //получение рассписания для конкретного пользователя
             student.GetStudentSchedule(Schedule.schedule);
-
-
-
         }
     }
 }

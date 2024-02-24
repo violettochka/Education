@@ -13,6 +13,7 @@ namespace Homework2
                                             int group)
         {
             var student = new Student(nameOfStudent, group);
+
             return student;
         }
 
@@ -22,6 +23,7 @@ namespace Homework2
                                             Subject subject)
         {
             var teacher = new Teacher(teacherName, availibleDayTime, subject);
+
             return teacher;
         }
 
@@ -30,6 +32,7 @@ namespace Homework2
                                             List<DayAvailability> availibleDayTime)
         {
             var subject = new Subject(nameSubject, availibleDayTime);
+
             return subject;
         }
 
@@ -47,6 +50,7 @@ namespace Homework2
             {
                 new DayAvailability(dayOfWeek,  timeRangeForTeacher)
             };
+
             return availibleDayTime;
         }
 
@@ -60,10 +64,6 @@ namespace Homework2
         {
             Schedule schedule = new Schedule();
             schedule.CreateSchedule(teacher, group, subject, dayOfWeek, startTime, endTime);
-
-
         }
-        
-
     }
 }

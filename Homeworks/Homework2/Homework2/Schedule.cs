@@ -9,21 +9,19 @@ namespace Homework2
     public class Schedule
     {
         public static List<Schedule> schedule = new List<Schedule>();
-
-
-
         public int Group { get; set; }
         public Teacher Teacher { get; set; }
         public Subject Subject { get; set; }
         public Days DayOfWeek { get; set; }
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
-
         private bool AvalibleTeacherState {  get; set; }
+
         public Schedule()
         {
 
         }
+
         public Schedule(int group,
                         Teacher teacher,
                         Subject subject,
@@ -59,6 +57,7 @@ namespace Homework2
                 Console.WriteLine("Рассписание не было создано. Проверьте временную доступность преподавателя/предмета");
             }
         }
+
         public bool TeacherIsAvalible(Teacher teacher,
                                       Days dayOfWeek,
                                       TimeSpan startTime,
@@ -85,7 +84,6 @@ namespace Homework2
                     }
                 }
             }
-
 
             return AvalibleTeacherState;
         }
@@ -116,8 +114,10 @@ namespace Homework2
                     }
                 }
             }
+
             return res;
         }
+
         public static void ShowAllSchedule()
         {
             foreach (var elem in schedule)
@@ -138,12 +138,12 @@ namespace Homework2
                 Console.WriteLine(elem.ToString());
             }
         }
+
         public void UpdateSchedule(Teacher teacher,
                                         Days dayOfWeek,
                                         TimeSpan startTime,
                                         TimeSpan endTime)
         {
-
             if (AvalibleTeacherState == false)
             {
                 schedule.RemoveAll(el => el.Teacher == teacher);
@@ -160,7 +160,4 @@ namespace Homework2
                 $"Время окончания: {EndTime}\n";
         }
     }
- 
-        
-
 }

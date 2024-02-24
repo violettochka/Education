@@ -10,24 +10,16 @@ namespace Homework2
     {
         public SubjectType NameSubject { get; set; }
         public List<DayAvailability> AvailibleDayTime { get; set; }
+
         public Subject(SubjectType NameSubject, List<DayAvailability> AvalibleDayTime) 
         {
             this.NameSubject = NameSubject;
             this.AvailibleDayTime = AvalibleDayTime;
-
         }
+
         public override string ToString()
         {
             return NameSubject.ToString();
         }
-    }
-
-    public enum SubjectType
-    {
-        Geometry,
-        Algebry,
-        History,
-        Literature,
-        OOP
     }
 }
