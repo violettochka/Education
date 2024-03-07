@@ -12,7 +12,7 @@ namespace Homework3
     {
         public static void CreateLinqElem() 
         {
-            var selectElems = Request.collection.Where(elem => elem.TimeStamp <= DateTime.Now);
+            var selectElems = Request.collection.Where(elem => elem.TimeStamp <= DateTime.UtcNow);
             selectElems.PrintAllElems();
 
             Console.WriteLine("---------------------------------------------------------");

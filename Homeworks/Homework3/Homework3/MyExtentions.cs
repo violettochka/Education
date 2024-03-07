@@ -13,10 +13,9 @@ namespace Homework3
         {
             foreach(var elem in collection)
             {
-                if (!Equals(elem, default(T)))
-                {
-                    Console.WriteLine(elem + "\n");
-                }
+
+                Console.WriteLine(elem + "\n");
+
             };
         }
 

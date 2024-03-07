@@ -8,7 +8,7 @@ namespace Homework3
 {
     public class Dictionary_Delegate
     {
-        public static Dictionary<string, Func<List<int>, int>> dictionary = new Dictionary<string, Func<List<int>, int>>
+        public readonly Dictionary<string, Func<IEnumerable<int>, double>> _dictionary = new Dictionary<string, Func<IEnumerable<int>, double>>
         {
             {"Find a multiple of unique elems", MultipleUniqueElem},
             { "Find a max length subsequence of decreasing elems", MaxDecreasingSubsequenceLength},
@@ -16,11 +16,12 @@ namespace Homework3
             { "Find max sum of collection", MaxSumOfList},
             { "Find the count of the most common number in collection", CountTheMostCommonNumber}
         };
+        public IReadOnlyDictionary<string, Func<IEnumerable<int>, double>> Dictionary => _dictionary.AsReadOnly();
 
-        public static int MultipleUniqueElem(List<int> collection)
+        public static double MultipleUniqueElem(IEnumerable<int> collection)
         {
             var unigElems = collection.Distinct();
-            int res = 1;
+            var res = 1;
             foreach (var elem in unigElems)
             {
                 res *= elem;
@@ -29,25 +30,27 @@ namespace Homework3
             return res;
         }
 
-        public static int MaxDecreasingSubsequenceLength(List<int> collection)
+        public static double MaxDecreasingSubsequenceLength(IEnumerable<int> collection)
         {
-            int res = 1;
-            for(int i = 1; i < collection.Count; i++)
+            double res = 1;
+            int count = 1;
+            foreach (var elem in collection.Skip(1))
             {
-                if (collection[i - 1] > collection[i])
+                if(collection.ElementAt(count - 1) > elem)
                 {
-                    res += 1;
+                    count++;
+                    res = Math.Max(res, count);
                 }
                 else
                 {
-                    res = 1;
+                    count = 1;
                 }
             }
 
             return res;
         }
 
-        public static int CountTheMostCommonNumber(List<int> collection) 
+        public static double CountTheMostCommonNumber(IEnumerable<int> collection) 
         {
             var dictionary = new Dictionary<int, int>();
             foreach(int elem in collection)
@@ -65,21 +68,15 @@ namespace Homework3
             return dictionary.Values.Max();
         }
 
-        public static int Average(List<int> collection)
+        public static double Average(IEnumerable<int> collection)
         {
-            int res = 0;
-            foreach (var elem in collection)
-            {
-                res += elem;
-            }
-
-            return res/2;
+            return collection.Average();
         }
 
-        public static int MaxSumOfList(List<int> collection)
+        public static double MaxSumOfList(IEnumerable<int> collection)
         {
-            int maxi = int.MinValue;
-            int current = 0;
+            double maxi = int.MinValue;
+            double current = 0;
 
             foreach(var elem in collection)
             {

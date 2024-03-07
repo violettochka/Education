@@ -10,9 +10,10 @@ namespace Homework3
     {
         public static void DelegateRealization()
         {
+            var exeplar = new Dictionary_Delegate();
             Console.WriteLine("Enter an operation");
-            string operation = new string(Console.ReadLine());
-            if (Dictionary_Delegate.dictionary.TryGetValue(operation, out var delegateOperation))
+            string operation = Console.ReadLine();
+            if (exeplar.Dictionary.TryGetValue(operation, out var delegateOperation))
             {
                 Console.WriteLine("enter a numbers please");
                 var elems = Console.ReadLine().Split(" ").Select(int.Parse).ToList();
